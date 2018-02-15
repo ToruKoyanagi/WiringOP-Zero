@@ -49,6 +49,6 @@ and to turn off this
 gpio write 30 0 
 ```
 
-Thanks to zhaolei, who created the base libary for this one!
+Thanks to zhaolei & xpertsavenue, who created the libary for this one!
 
 
