@@ -49,6 +49,32 @@ and to turn off this
 gpio write 30 0 
 ```
 
+## Small test program
+
+Create a file called blink.c with the content:
+```
+#include <stdio.h>
+#include <wiringPi.h>
+int main (void)
+{
+wiringPiSetup ();
+pinMode (30, OUTPUT);
+printf ("Test program is running.\n");
+printf ("Status LED is flashing.\n");
+printf ("Press CTRL+C to stop programm.\n");
+for (;;)
+{
+digitalWrite (30, HIGH);
+delay (500);
+digitalWrite (30, LOW);
+delay (500);
+}
+return 0;
+}
+```
+Then to compile and run, you would enter below in the command line:
+```
+gcc -Wall -o blink blink.c -lwiringPi
+sudo ./blink
+```
 Thanks to zhaolei & xpertsavenue, who created the libary for this one!
-
-
