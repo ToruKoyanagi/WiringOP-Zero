@@ -49,7 +49,7 @@ and to turn off this
 gpio write 30 0 
 ```
 
-## Small test program
+## Small test program: Blink
 
 Create a file called blink.c with the content:
 ```
