@@ -98,8 +98,15 @@ int wiringPiSPISetup (int channel, int speed)
 
   channel &= 1 ;
 
-  if ((fd = open (channel == 0 ? spiDev0 : spiDev1, O_RDWR)) < 0)
-    return wiringPiFailure (WPI_ALMOST, "Unable to open SPI device: %s\n", strerror (errno)) ;
+ if (channel == 0) {
+   if ((fd = open (spiDev0, O_RDWR)) < 0)
+     return wiringPiFailure (WPI_ALMOST, "Unable to open SPI device: %s\n", strerror (errno)) ;
+ };
+
+ if (channel == 1) {
+   if ((fd = open (spiDev1, O_RDWR)) < 0)
+     return wiringPiFailure (WPI_ALMOST, "Unable to open SPI device: %s\n", strerror (errno)) ;
+ };
 
   spiSpeeds [channel] = speed ;
   spiFds    [channel] = fd ;
